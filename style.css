@@ -242,7 +242,7 @@ body.modal-open {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem 0;
     text-align: center;
-    margin-top: 3rem;
+    margin-bottom: 150px !important;
 }
 
 .footer p {
