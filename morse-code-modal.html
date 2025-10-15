@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Module</title>
+    <link rel="stylesheet" href="morse-code-modal.css">
+</head>
+<body>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>📡 Morse Code Module</h2>
+            <p class="module-description">Decode the blinking light by tapping in sync with your partner to identify the word and find its frequency</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="decoder">Interactive Decoder</button>
+            <button class="tab-btn" data-tab="manual">Manual Reference</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Interactive Decoder Tab -->
+            <div class="tab-panel active" id="decoder">
+                <div class="decoder-container">
+                    
+                    <!-- Input Mode Selection -->
+                    <div class="input-mode-section">
+                        <h3>🎛️ Input Mode</h3>
+                        <div class="mode-selector">
+                            <button class="mode-btn active" data-mode="single">
+                                <span class="mode-icon">👆</span>
+                                <span class="mode-title">Single Button</span>
+                                <span class="mode-desc">Hold for dot/dash</span>
+                            </button>
+                            <button class="mode-btn" data-mode="dual">
+                                <span class="mode-icon">✌️</span>
+                                <span class="mode-title">Two Buttons</span>
+                                <span class="mode-desc">Separate dot & dash</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Input Interface -->
+                    <div class="input-interface">
+                        <!-- Single Button Mode -->
+                        <div class="input-mode-panel active" id="single-mode">
+                            <h3>📟 Tap in Sync</h3>
+                            <div class="single-button-container">
+                                <button class="morse-button" id="morseButton">
+                                    <span class="button-text">TAP</span>
+                                    <span class="button-help">Hold for dash, tap for dot</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Dual Button Mode -->
+                        <div class="input-mode-panel" id="dual-mode">
+                            <h3>📟 Separate Controls</h3>
+                            <div class="dual-button-container">
+                                <button class="morse-button dot-button" id="dotButton">
+                                    <span class="button-text">•</span>
+                                    <span class="button-help">DOT</span>
+                                </button>
+                                <button class="morse-button dash-button" id="dashButton">
+                                    <span class="button-text">–</span>
+                                    <span class="button-help">DASH</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Input Display -->
+                    <div class="input-display-section">
+                        <h3>📝 Current Input</h3>
+                        <div class="input-display">
+                            <div class="morse-sequence" id="morseSequence">
+                                <span class="sequence-prompt">Start tapping to input morse code...</span>
+                            </div>
+                            <div class="letter-sequence" id="letterSequence">
+                                <span class="sequence-prompt">Decoded letters will appear here...</span>
+                            </div>
+                        </div>
+                        <div class="input-controls">
+                            <button class="control-btn" id="spaceButton">Add Space</button>
+                            <button class="control-btn reset-btn" id="resetButton">🔄 Reset</button>
+                        </div>
+                    </div>
+
+                    <!-- Word Matching -->
+                    <div class="word-matching-section">
+                        <h3>🎯 Possible Matches</h3>
+                        <div class="matches-container" id="matchesContainer">
+                            <div class="no-matches">
+                                <span>Input morse code to see possible word matches...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solution Display -->
+                    <div class="solution-section">
+                        <h3>📻 Frequency Result</h3>
+                        <div class="frequency-display" id="frequencyDisplay">
+                            <div class="frequency-result">
+                                <span class="frequency-prompt">Complete a word match to see the frequency</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Manual Reference Tab -->
+            <div class="tab-panel" id="manual">
+                <div class="reference-container">
+                    
+                    <!-- Instructions -->
+                    <div class="instructions-section">
+                        <h3>📋 How Morse Code Works</h3>
+                        <div class="instruction-grid">
+                            <div class="instruction-item">
+                                <h4>🔄 Pattern Recognition</h4>
+                                <p>The light may start mid-word. If you see "LLSHELL", it's likely "SHELL" repeating. Look for patterns in your input.</p>
+                            </div>
+                            <div class="instruction-item">
+                                <h4>⏱️ Timing (Single Button)</h4>
+                                <p><strong>Dot:</strong> Quick tap (under 300ms)<br><strong>Dash:</strong> Hold longer (over 300ms)</p>
+                            </div>
+                            <div class="instruction-item">
+                                <h4>🎯 Word Matching</h4>
+                                <p>Possible words appear as you type. The system checks for matches including partial/circular patterns.</p>
+                            </div>
+                            <div class="instruction-item">
+                                <h4>📻 Frequency Response</h4>
+                                <p>Once you identify the word, use the corresponding frequency to respond on the radio.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Morse Code Alphabet -->
+                    <div class="alphabet-section">
+                        <h3>🔤 Morse Code Alphabet</h3>
+                        <div class="alphabet-grid">
+                            <div class="letter-item"><span class="letter">A</span><span class="morse">•–</span></div>
+                            <div class="letter-item"><span class="letter">B</span><span class="morse">–•••</span></div>
+                            <div class="letter-item"><span class="letter">C</span><span class="morse">–•–•</span></div>
+                            <div class="letter-item"><span class="letter">D</span><span class="morse">–••</span></div>
+                            <div class="letter-item"><span class="letter">E</span><span class="morse">•</span></div>
+                            <div class="letter-item"><span class="letter">F</span><span class="morse">••–•</span></div>
+                            <div class="letter-item"><span class="letter">G</span><span class="morse">––•</span></div>
+                            <div class="letter-item"><span class="letter">H</span><span class="morse">••••</span></div>
+                            <div class="letter-item"><span class="letter">I</span><span class="morse">••</span></div>
+                            <div class="letter-item"><span class="letter">J</span><span class="morse">•–––</span></div>
+                            <div class="letter-item"><span class="letter">K</span><span class="morse">–•–</span></div>
+                            <div class="letter-item"><span class="letter">L</span><span class="morse">•–••</span></div>
+                            <div class="letter-item"><span class="letter">M</span><span class="morse">––</span></div>
+                            <div class="letter-item"><span class="letter">N</span><span class="morse">–•</span></div>
+                            <div class="letter-item"><span class="letter">O</span><span class="morse">–––</span></div>
+                            <div class="letter-item"><span class="letter">P</span><span class="morse">•––•</span></div>
+                            <div class="letter-item"><span class="letter">Q</span><span class="morse">––•–</span></div>
+                            <div class="letter-item"><span class="letter">R</span><span class="morse">•–•</span></div>
+                            <div class="letter-item"><span class="letter">S</span><span class="morse">•••</span></div>
+                            <div class="letter-item"><span class="letter">T</span><span class="morse">–</span></div>
+                            <div class="letter-item"><span class="letter">U</span><span class="morse">••–</span></div>
+                            <div class="letter-item"><span class="letter">V</span><span class="morse">•••–</span></div>
+                            <div class="letter-item"><span class="letter">W</span><span class="morse">•––</span></div>
+                            <div class="letter-item"><span class="letter">X</span><span class="morse">–••–</span></div>
+                            <div class="letter-item"><span class="letter">Y</span><span class="morse">–•––</span></div>
+                            <div class="letter-item"><span class="letter">Z</span><span class="morse">––••</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Word List with Frequencies -->
+                    <div class="wordlist-section">
+                        <h3>📻 Word-Frequency Table</h3>
+                        <div class="wordlist-container">
+                            <div class="wordlist-grid">
+                                <div class="word-item">
+                                    <span class="word">SHELL</span>
+                                    <span class="word-morse">••• •••• • •–•• •–••</span>
+                                    <span class="frequency">3.505 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">HALLS</span>
+                                    <span class="word-morse">•••• •– •–•• •–•• •••</span>
+                                    <span class="frequency">3.515 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">SLICK</span>
+                                    <span class="word-morse">••• •–•• •• –•–• –•–</span>
+                                    <span class="frequency">3.522 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">TRICK</span>
+                                    <span class="word-morse">– •–• •• –•–• –•–</span>
+                                    <span class="frequency">3.532 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">BOXES</span>
+                                    <span class="word-morse">–••• ––– –••– • •••</span>
+                                    <span class="frequency">3.535 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">LEAKS</span>
+                                    <span class="word-morse">•–•• • •– –•– •••</span>
+                                    <span class="frequency">3.542 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">STROBE</span>
+                                    <span class="word-morse">••• – •–• ––– –••• •</span>
+                                    <span class="frequency">3.545 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">BISTRO</span>
+                                    <span class="word-morse">–••• •• ••• – •–• –––</span>
+                                    <span class="frequency">3.552 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">FLICK</span>
+                                    <span class="word-morse">••–• •–•• •• –•–• –•–</span>
+                                    <span class="frequency">3.555 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">BOMBS</span>
+                                    <span class="word-morse">–••• ––– –– –••• •••</span>
+                                    <span class="frequency">3.565 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">BREAK</span>
+                                    <span class="word-morse">–••• •–• • •– –•–</span>
+                                    <span class="frequency">3.572 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">BRICK</span>
+                                    <span class="word-morse">–••• •–• •• –•–• –•–</span>
+                                    <span class="frequency">3.575 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">STEAK</span>
+                                    <span class="word-morse">••• – • •– –•–</span>
+                                    <span class="frequency">3.582 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">STING</span>
+                                    <span class="word-morse">••• – •• –• ––•</span>
+                                    <span class="frequency">3.592 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">VECTOR</span>
+                                    <span class="word-morse">•••– • –•–• – ––– •–•</span>
+                                    <span class="frequency">3.595 MHz</span>
+                                </div>
+                                <div class="word-item">
+                                    <span class="word">BEATS</span>
+                                    <span class="word-morse">–••• • •– – •••</span>
+                                    <span class="frequency">3.600 MHz</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tips Section -->
+                    <div class="tips-section">
+                        <h3>💡 Pro Tips</h3>
+                        <ul class="tips-list">
+                            <li>Listen for letter boundaries - there's usually a pause between letters</li>
+                            <li>Common letters like E (•) and T (–) appear frequently</li>
+                            <li>If stuck, try the reset button and listen for the pattern again</li>
+                            <li>The word repeats, so you can catch it at any point in the cycle</li>
+                            <li>Watch the real-time matching - it helps identify the word early</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="morse-code-modal.js"></script>
+</body>
+</html>

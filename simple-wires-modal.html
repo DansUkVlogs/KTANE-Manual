@@ -1,0 +1,220 @@
+<div class="module-header">
+    <div class="module-title">
+        <span class="module-icon">🔌</span>
+        <h2>Simple Wires</h2>
+        <div class="difficulty-badge easy">Easy</div>
+    </div>
+    <p class="module-description">Cut the correct wire based on color and position rules</p>
+</div>
+
+<div class="module-content">
+    <div class="instructions-section">
+        <div class="warning-banner">
+            ⚠️ <strong>Important:</strong> Some rules require checking the <strong>serial number</strong> on the bomb casing
+        </div>
+        
+        <h3>📋 Instructions</h3>
+        <p class="instructions-intro">Select the number of wires you see on the module:</p>
+        
+        <!-- Wire Count Tabs -->
+        <div class="wire-tabs">
+            <button class="wire-tab active" data-wires="auto" aria-label="Automatic"><span style="font-size:1.3em;">⚙️</span></button>
+            <button class="wire-tab" data-wires="3" aria-label="3 Wires"><span style="font-size:1.3em;">3️⃣</span></button>
+            <button class="wire-tab" data-wires="4" aria-label="4 Wires"><span style="font-size:1.3em;">4️⃣</span></button>
+            <button class="wire-tab" data-wires="5" aria-label="5 Wires"><span style="font-size:1.3em;">5️⃣</span></button>
+            <button class="wire-tab" data-wires="6" aria-label="6 Wires"><span style="font-size:1.3em;">6️⃣</span></button>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="wire-tab-content">
+            <!-- Automatic Tab -->
+            <div class="tab-pane active" data-tab="auto">
+                <div class="auto-solver" id="autoSolver">
+                    <!-- Step 1: Wire Count Selection -->
+                    <div class="solver-step active" id="step-wirecount">
+                        <div class="step-header">
+                            <h4>🔌 Step 1: Wire Count</h4>
+                            <p>How many wires do you see on the module?</p>
+                        </div>
+                        <div class="wire-count-buttons">
+                            <button class="count-btn" data-count="3">3 Wires</button>
+                            <button class="count-btn" data-count="4">4 Wires</button>
+                            <button class="count-btn" data-count="5">5 Wires</button>
+                            <button class="count-btn" data-count="6">6 Wires</button>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Question Steps -->
+                    <div class="solver-step" id="step-questions">
+                        <div class="step-header">
+                            <div class="progress-indicator">
+                                <span class="progress-text">Question <span id="currentQuestion">1</span> of <span id="totalQuestions">3</span></span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                            </div>
+                            <h4 id="questionTitle">🔍 Question</h4>
+                            <p id="questionText">Loading...</p>
+                        </div>
+                        <div class="question-buttons">
+                            <button class="answer-btn yes-btn" id="yesBtn">Yes</button>
+                            <button class="answer-btn no-btn" id="noBtn">No</button>
+                        </div>
+                        <div class="step-controls">
+                            <button class="control-btn back-btn" id="backBtn">← Back</button>
+                        </div>
+                    </div>
+
+                    <!-- Final Answer -->
+                    <div class="solver-step" id="step-result">
+                        <div class="step-header">
+                            <h4>✅ Solution Found!</h4>
+                            <div class="result-display" id="resultDisplay">
+                                <div class="result-wire">Cut the <strong id="wireAnswer">second wire</strong></div>
+                                <div class="result-explanation" id="resultExplanation">Based on your answers...</div>
+                            </div>
+                        </div>
+                        <div class="step-controls">
+                            <button class="control-btn back-btn" id="backToQuestion">← Back</button>
+                            <button class="control-btn restart-btn" id="restartBtn">🔄 Start Over</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3 Wires Tab -->
+            <div class="tab-pane" data-tab="3">
+                <div class="rule-list">
+                    <div class="rule-item">
+                        <span class="rule-number">1.</span>
+                        <span class="rule-text">If there are <strong>no red wires</strong>, cut the <strong class="cut-wire">second wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">2.</span>
+                        <span class="rule-text">Otherwise, if the <strong>last wire is white</strong>, cut the <strong class="cut-wire">last wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">3.</span>
+                        <span class="rule-text">Otherwise, if there is <strong>more than one blue wire</strong>, cut the <strong class="cut-wire">last blue wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">4.</span>
+                        <span class="rule-text">Otherwise, cut the <strong class="cut-wire">last wire</strong>.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 4 Wires Tab -->
+            <div class="tab-pane" data-tab="4">
+                <div class="serial-warning">
+                    🔢 <strong>Note:</strong> You need to check the <strong>serial number</strong> for some rules below
+                </div>
+                <div class="rule-list">
+                    <div class="rule-item">
+                        <span class="rule-number">1.</span>
+                        <span class="rule-text">If there is <strong>more than one red wire</strong> and the <strong>last digit of the serial number is odd</strong>, cut the <strong class="cut-wire">last red wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">2.</span>
+                        <span class="rule-text">Otherwise, if the <strong>last wire is yellow</strong> and there are <strong>no red wires</strong>, cut the <strong class="cut-wire">first wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">3.</span>
+                        <span class="rule-text">Otherwise, if there is <strong>exactly one blue wire</strong>, cut the <strong class="cut-wire">first wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">4.</span>
+                        <span class="rule-text">Otherwise, if there is <strong>more than one yellow wire</strong>, cut the <strong class="cut-wire">last wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">5.</span>
+                        <span class="rule-text">Otherwise, cut the <strong class="cut-wire">second wire</strong>.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 5 Wires Tab -->
+            <div class="tab-pane" data-tab="5">
+                <div class="serial-warning">
+                    🔢 <strong>Note:</strong> You need to check the <strong>serial number</strong> for some rules below
+                </div>
+                <div class="rule-list">
+                    <div class="rule-item">
+                        <span class="rule-number">1.</span>
+                        <span class="rule-text">If the <strong>last wire is black</strong> and the <strong>last digit of the serial number is odd</strong>, cut the <strong class="cut-wire">fourth wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">2.</span>
+                        <span class="rule-text">Otherwise, if there is <strong>exactly one red wire</strong> and there is <strong>more than one yellow wire</strong>, cut the <strong class="cut-wire">first wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">3.</span>
+                        <span class="rule-text">Otherwise, if there are <strong>no black wires</strong>, cut the <strong class="cut-wire">second wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">4.</span>
+                        <span class="rule-text">Otherwise, cut the <strong class="cut-wire">first wire</strong>.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 6 Wires Tab -->
+            <div class="tab-pane" data-tab="6">
+                <div class="serial-warning">
+                    🔢 <strong>Note:</strong> You need to check the <strong>serial number</strong> for some rules below
+                </div>
+                <div class="rule-list">
+                    <div class="rule-item">
+                        <span class="rule-number">1.</span>
+                        <span class="rule-text">If there are <strong>no yellow wires</strong> and the <strong>last digit of the serial number is odd</strong>, cut the <strong class="cut-wire">third wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">2.</span>
+                        <span class="rule-text">Otherwise, if there is <strong>exactly one yellow wire</strong> and there is <strong>more than one white wire</strong>, cut the <strong class="cut-wire">fourth wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">3.</span>
+                        <span class="rule-text">Otherwise, if there are <strong>no red wires</strong>, cut the <strong class="cut-wire">last wire</strong>.</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-number">4.</span>
+                        <span class="rule-text">Otherwise, cut the <strong class="cut-wire">fourth wire</strong>.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="reference-section">
+        <h3>🎯 Quick Reference</h3>
+        <div class="reference-grid">
+            <div class="reference-item">
+                <div class="wire-color red"></div>
+                <span>Red Wire</span>
+            </div>
+            <div class="reference-item">
+                <div class="wire-color blue"></div>
+                <span>Blue Wire</span>
+            </div>
+            <div class="reference-item">
+                <div class="wire-color yellow"></div>
+                <span>Yellow Wire</span>
+            </div>
+            <div class="reference-item">
+                <div class="wire-color white"></div>
+                <span>White Wire</span>
+            </div>
+            <div class="reference-item">
+                <div class="wire-color black"></div>
+                <span>Black Wire</span>
+            </div>
+        </div>
+        
+        <div class="serial-note">
+            <strong>💡 Remember:</strong> Check the bomb's serial number for odd/even last digit rules!
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="simple-wires-modal.css">
+<script src="simple-wires-modal.js"></script>

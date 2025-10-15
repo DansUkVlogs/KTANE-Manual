@@ -1,0 +1,706 @@
+@media (max-width: 600px) {
+    .simon-colors-grid {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+    .simon-color {
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: none;
+        height: 56px;
+        font-size: 1.1rem;
+        padding: 0;
+        border-radius: 12px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        border: none;
+        transition: background 0.2s;
+    }
+}
+/* Mobile optimization for Simon Says modal */
+@media (max-width: 600px) {
+    .modal-content {
+        padding-bottom: 80px;
+    }
+}
+/* Simon Says Modal Specific Styles - Dark Mode */
+
+/* Modal Background Override for Dark Mode */
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+    color: #dae1ff !important;
+}
+
+/* Module Header Dark Mode */
+.module-header {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-bottom: 2px solid rgba(55, 66, 250, 0.5) !important;
+}
+
+.module-title h2 {
+    color: #dae1ff !important;
+}
+
+.module-title p {
+    color: #b8c5ff !important;
+}
+
+/* Flash Display - Dark Mode */
+.flash-display {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    border: 1px solid rgba(55, 66, 250, 0.3);
+}
+
+.flash-display h4 {
+    color: #dae1ff;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.flash-sequence {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.empty-flash {
+    color: #8892bf;
+    font-style: italic;
+}
+
+.flash-item {
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.flash-item.red { background: #ff4757; }
+.flash-item.blue { background: #3742fa; }
+.flash-item.yellow { background: #ffa502; color: #2f3542; }
+.flash-item.green { background: #2ed573; }
+
+.strikes-question h4 {
+    color: #dae1ff;
+    margin-bottom: 16px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.strikes-selector {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.strike-option {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #b8c5ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.strike-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(55, 66, 250, 0.5);
+}
+
+.strike-option.active {
+    background: linear-gradient(135deg, #3742fa, #5352ed);
+    border-color: #70a1ff;
+    color: white;
+    box-shadow: 0 4px 15px rgba(55, 66, 250, 0.3);
+}
+
+/* Sequence Input Section */
+.sequence-input {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    padding: 24px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sequence-input h4 {
+    color: #dae1ff;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.sequence-input p {
+    color: #8892bf;
+    margin-bottom: 20px;
+}
+
+/* Simon Colors Grid */
+.simon-colors-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.simon-color {
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.simon-color.red {
+    background: linear-gradient(135deg, #ff4757, #ff3838);
+    color: white;
+}
+
+.simon-color.blue {
+    background: linear-gradient(135deg, #3742fa, #2f3542);
+    color: white;
+}
+
+.simon-color.green {
+    background: linear-gradient(135deg, #2ed573, #1dd1a1);
+    color: white;
+}
+
+.simon-color.yellow {
+    background: linear-gradient(135deg, #ffa502, #ff9ff3);
+    color: #2f3542;
+}
+
+.simon-color:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.simon-color:active {
+    transform: translateY(0);
+    animation: colorFlash 0.2s ease;
+}
+
+/* Controls Row - Dark Mode */
+.controls-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    flex-wrap: wrap;
+    border: 1px solid rgba(55, 66, 250, 0.2);
+}
+
+/* Flat Strike Counter */
+.flat-strike-counter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.flat-strike-counter label {
+    color: #dae1ff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.flat-strike-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.flat-strike-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(55, 66, 250, 0.8);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.flat-strike-btn:hover {
+    background: #3742fa;
+    transform: scale(1.1);
+}
+
+.flat-strike-btn:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.flat-strike-count {
+    color: #dae1ff;
+    font-weight: bold;
+    font-family: 'Orbitron', monospace;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Calc Serial Input */
+.calc-serial {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.calc-serial label {
+    color: #dae1ff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+#calcSerial {
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: #b8c5ff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    max-width: 120px;
+}
+
+/* Clear All Button */
+.clear-all-btn {
+    padding: 10px 16px;
+    background: rgba(255, 71, 87, 0.2);
+    border: 2px solid rgba(255, 71, 87, 0.3);
+    border-radius: 8px;
+    color: #ff6b7a;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.clear-all-btn:hover {
+    background: rgba(255, 71, 87, 0.3);
+    border-color: #ff4757;
+}
+
+/* Previous Presses Display - Dark Mode */
+.presses-display {
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    border: 1px solid rgba(46, 213, 115, 0.4);
+}
+
+.presses-display h4 {
+    color: #dae1ff;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.press-sequence {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.empty-press {
+    color: #8892bf;
+    font-style: italic;
+}
+
+.press-item {
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    animation: fadeIn 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.press-item.red { background: #ff4757; }
+.press-item.blue { background: #3742fa; }
+.press-item.yellow { background: #ffa502; color: #2f3542; }
+.press-item.green { background: #2ed573; }
+
+@keyframes colorFlash {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); filter: brightness(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Sequence Display */
+.sequence-display {
+    margin-bottom: 20px;
+}
+
+.sequence-display h5 {
+    color: #dae1ff;
+    margin-bottom: 12px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.sequence-list {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 16px;
+    border-radius: 10px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.empty-sequence {
+    color: #8892bf;
+    font-style: italic;
+}
+
+.sequence-item {
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeIn 0.3s ease;
+}
+
+.sequence-item.red {
+    background: linear-gradient(135deg, #ff4757, #ff3838);
+}
+
+.sequence-item.blue {
+    background: linear-gradient(135deg, #3742fa, #2f3542);
+}
+
+.sequence-item.green {
+    background: linear-gradient(135deg, #2ed573, #1dd1a1);
+}
+
+.sequence-item.yellow {
+    background: linear-gradient(135deg, #ffa502, #ff9ff3);
+    color: #2f3542;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Sequence Controls */
+.sequence-controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.clear-btn {
+    padding: 12px 20px;
+    background: rgba(255, 71, 87, 0.2);
+    border: 2px solid rgba(255, 71, 87, 0.3);
+    border-radius: 10px;
+    color: #ff6b7a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.clear-btn:hover {
+    background: rgba(255, 71, 87, 0.3);
+    border-color: #ff4757;
+    color: #ff4757;
+}
+
+.solve-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #3742fa, #5352ed);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(55, 66, 250, 0.3);
+}
+
+.solve-btn:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: #8892bf;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.solve-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #4c63d2, #3742fa);
+    box-shadow: 0 6px 20px rgba(55, 66, 250, 0.4);
+}
+
+/* Result Display */
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.result-icon {
+    font-size: 2em;
+}
+
+.result-header h3 {
+    color: #dae1ff;
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.next-color-display {
+    background: linear-gradient(135deg, rgba(46, 213, 115, 0.1), rgba(29, 209, 161, 0.1));
+    padding: 32px;
+    border-radius: 15px;
+    margin-bottom: 24px;
+    border: 2px solid rgba(46, 213, 115, 0.3);
+    text-align: center;
+}
+
+.next-color-btn {
+    padding: 20px 40px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: white;
+    cursor: default;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    display: block;
+}
+
+.next-color-btn.red {
+    background: linear-gradient(135deg, #ff4757, #ff3838);
+}
+
+.next-color-btn.blue {
+    background: linear-gradient(135deg, #3742fa, #2f3542);
+}
+
+.next-color-btn.green {
+    background: linear-gradient(135deg, #2ed573, #1dd1a1);
+}
+
+.next-color-btn.yellow {
+    background: linear-gradient(135deg, #ffa502, #ff9ff3);
+    color: #2f3542;
+}
+
+.result-explanation {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    border-left: 4px solid #70a1ff;
+}
+
+.result-explanation h5 {
+    color: #dae1ff;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.result-explanation p {
+    color: #b8c5ff;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Reference Table Styles */
+.reference-content {
+    padding: 24px;
+}
+
+.reference-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.reference-icon {
+    font-size: 3em;
+    margin-bottom: 16px;
+}
+
+.reference-header h4 {
+    color: #dae1ff;
+    font-size: 1.4em;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.reference-header p {
+    color: #8892bf;
+}
+
+.reference-tables {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.table-section h5 {
+    color: #dae1ff;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reference-table {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.vowel-condition,
+.color-mapping {
+    padding: 16px 20px;
+}
+
+.vowel-condition {
+    background: rgba(55, 66, 250, 0.1);
+    color: #dae1ff;
+    font-weight: 600;
+}
+
+.color-mapping {
+    color: #b8c5ff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.95em;
+}
+
+.reference-note {
+    background: linear-gradient(135deg, rgba(112, 161, 255, 0.1), rgba(55, 66, 250, 0.1));
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 32px;
+    /* Smaller tiles for Previous Flashes and Previous Presses */
+}
+.flash-sequence, .press-sequence {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+.flash-item, .press-item {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    border: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.flash-item.red, .press-item.red { background: #ff4757; }
+.flash-item.blue, .press-item.blue { background: #3742fa; }
+.flash-item.yellow, .press-item.yellow { background: #ffa502; color: #2f3542; }
+.flash-item.green, .press-item.green { background: #2ed573; }
+.flash-item .seq-num, .press-item .seq-num {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0px;
+}
+.flash-item .color-emoji, .press-item .color-emoji {
+    font-size: 1.1em;
+}
+
+.reference-note strong {
+    color: #dae1ff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .simon-colors {
+        max-width: 100%;
+    }
+    
+    .strikes-selector {
+        flex-direction: column;
+    }
+    
+    .sequence-controls {
+        flex-direction: column;
+    }
+    
+    .clear-btn,
+    .solve-btn {
+        width: 100%;
+    }
+    
+    .table-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .vowel-condition {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .reference-tables {
+        gap: 16px;
+    }
+}

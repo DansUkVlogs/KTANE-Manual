@@ -1,0 +1,413 @@
+/* Wire Sequences Modal Styles - Dark Mode */
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+    color: #e6e6e6 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure no white backgrounds anywhere */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.modal-header {
+    background: rgba(26, 26, 46, 0.9);
+    padding: 1.5rem;
+    border-bottom: 1px solid #3a3a5c;
+}
+
+.modal-header h2 {
+    color: #4cc9f0;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.module-description {
+    color: #b8b8cc;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    background: rgba(22, 33, 62, 0.8);
+    border-bottom: 1px solid #3a3a5c;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: #b8b8cc;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+    background: rgba(76, 201, 240, 0.1);
+    color: #4cc9f0;
+}
+
+.tab-btn.active {
+    color: #4cc9f0;
+    border-bottom-color: #4cc9f0;
+    background: rgba(76, 201, 240, 0.05);
+}
+
+.tab-panel {
+    display: none;
+    background: rgba(26, 26, 46, 0.95) !important;
+    color: #e6e6e6 !important;
+    min-height: calc(100vh - 200px);
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* Wire Tracker Styles */
+.wire-tracker {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.tracker-header h3 {
+    color: #4cc9f0;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.reset-btn {
+    background: linear-gradient(135deg, #ff4757, #ff3742);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: linear-gradient(135deg, #ff3742, #ff2f3a);
+    transform: translateY(-2px);
+}
+
+/* Wire Buttons Grid */
+.wire-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.wire-btn {
+    background: linear-gradient(135deg, #2c2c54, #40407a);
+    border: 2px solid #5c5c8a;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.wire-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.wire-btn.red-btn {
+    border-color: #ff4757;
+    background: linear-gradient(135deg, #ff4757, #ff3742);
+}
+
+.wire-btn.blue-btn {
+    border-color: #3742fa;
+    background: linear-gradient(135deg, #3742fa, #2f3ce4);
+}
+
+.wire-btn.black-btn {
+    border-color: #57606f;
+    background: linear-gradient(135deg, #57606f, #2f3542);
+}
+
+.wire-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.wire-label {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.occurrence-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Controls Section */
+.controls-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.undo-btn {
+    background: linear-gradient(135deg, #ffa502, #ff9500);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.undo-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #ff9500, #ff8c00);
+    transform: translateY(-2px);
+}
+
+.undo-btn:disabled {
+    background: linear-gradient(135deg, #666, #555);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Action Display */
+.action-display {
+    background: rgba(22, 33, 62, 0.7);
+    border: 2px solid #3a3a5c;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.action-display h3 {
+    color: #4cc9f0;
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+}
+
+.action-result {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(26, 26, 46, 0.8);
+}
+
+.action-result.cut {
+    color: #2ed573;
+    border-left: 4px solid #2ed573;
+}
+
+.action-result.info {
+    color: #4cc9f0;
+    border-left: 4px solid #4cc9f0;
+}
+
+.action-explanation {
+    color: #b8b8cc;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Wire History */
+.wire-history {
+    background: rgba(22, 33, 62, 0.5);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.wire-history h4 {
+    color: #4cc9f0;
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+}
+
+.history-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.empty-history {
+    color: #888;
+    font-style: italic;
+}
+
+.history-item {
+    background: rgba(76, 201, 240, 0.1);
+    color: #4cc9f0;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+.history-item.red { 
+    background: rgba(255, 71, 87, 0.1); 
+    color: #ff4757; 
+    border-color: rgba(255, 71, 87, 0.3);
+}
+
+.history-item.blue { 
+    background: rgba(55, 66, 250, 0.1); 
+    color: #3742fa; 
+    border-color: rgba(55, 66, 250, 0.3);
+}
+
+.history-item.black { 
+    background: rgba(87, 96, 111, 0.1); 
+    color: #57606f; 
+    border-color: rgba(87, 96, 111, 0.3);
+}
+
+/* Manual Styles */
+.manual-content {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.manual-content h3 {
+    color: #4cc9f0;
+    margin: 0 0 2rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.section {
+    background: rgba(22, 33, 62, 0.6);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid #3a3a5c;
+}
+
+.section h4 {
+    color: #4cc9f0;
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.section li {
+    background: rgba(26, 26, 46, 0.5);
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 3px solid #4cc9f0;
+}
+
+.section li:last-child {
+    margin-bottom: 0;
+}
+
+/* Rules Table */
+.rules-table {
+    overflow-x: auto;
+}
+
+.rules-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(26, 26, 46, 0.7);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.rules-table th {
+    background: rgba(76, 201, 240, 0.2);
+    color: #4cc9f0;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #4cc9f0;
+}
+
+.rules-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #3a3a5c;
+    color: #e6e6e6;
+}
+
+.rules-table tr:hover {
+    background: rgba(76, 201, 240, 0.05);
+}
+
+.cut-letter {
+    font-weight: bold;
+    color: #2ed573;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .wire-buttons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tracker-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .wire-tracker, .manual-content {
+        padding: 1rem;
+    }
+
+    .modal-content {
+        padding-bottom: 30px !important;
+    }
+
+    .wire-buttons-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+        padding: 0;
+    }
+}

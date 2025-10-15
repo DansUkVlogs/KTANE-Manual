@@ -1,0 +1,535 @@
+/* Memory Modal Styles */
+.modal-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #dae1ff;
+    width: 100%;
+    margin: 0;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, rgba(55, 66, 250, 0.2), rgba(83, 82, 237, 0.2));
+    padding: 25px 30px;
+    border-bottom: 2px solid rgba(55, 66, 250, 0.3);
+    text-align: center;
+}
+
+.modal-header h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(55, 66, 250, 0.5);
+}
+
+.module-description {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgba(55, 66, 250, 0.3);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px 20px;
+    background: transparent;
+    border: none;
+    color: #b8c5ff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn:hover {
+    background: rgba(55, 66, 250, 0.1);
+    color: #dae1ff;
+}
+
+.tab-btn.active {
+    background: rgba(55, 66, 250, 0.2);
+    color: #ffffff;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3742fa, #5352ed);
+}
+
+/* Tab Content */
+.tab-content {
+    padding: 0;
+}
+
+.tab-panel {
+    display: none;
+    padding: 25px 30px;
+    animation: fadeIn 0.3s ease;
+    min-height: 100%;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Solver Container */
+/* Solver Container */
+.solver-container {
+    border-radius: 10px;
+    border: 1px solid rgba(55, 66, 250, 0.2);
+}
+.modal-container {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    height: 99% !important;
+    min-height: 99%;
+}
+.modal-content {
+    overflow: visible !important;
+    padding: 20px;
+    height: 100% !important;
+}
+
+.current-stage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.current-stage h3 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.reset-btn {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: linear-gradient(135deg, #ee5a52, #ff6b6b);
+    transform: translateY(-1px);
+}
+
+.stage-indicators {
+    display: flex;
+    gap: 10px;
+}
+
+.stage-indicator {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #b8c5ff;
+    transition: all 0.3s ease;
+}
+
+.stage-indicator.active {
+    background: linear-gradient(135deg, #3742fa, #5352ed);
+    border-color: #3742fa;
+    color: white;
+    box-shadow: 0 4px 15px rgba(55, 66, 250, 0.3);
+}
+
+.stage-indicator.completed {
+    background: linear-gradient(135deg, #4caf50, #388e3c);
+    border-color: #4caf50;
+    color: white;
+}
+
+/* Input Sections */
+.stage-input-section, .buttons-section, .solution-section, .memory-section {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(55, 66, 250, 0.2);
+}
+
+.stage-input-section h3, .buttons-section h3, .solution-section h3, .memory-section h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Display Selection */
+.display-selection {
+    margin-bottom: 15px;
+}
+
+.display-selection label {
+    display: block;
+    margin-bottom: 15px;
+    color: #b8c5ff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.display-buttons {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.display-btn {
+    width: 56px;
+    height: 56px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 60% 40%, #3742fa 0%, #23234a 100%);
+    border: 3px solid #3742fa;
+    color: #dae1ff;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px rgba(55,66,250,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 6px;
+}
+
+.display-btn:hover {
+    background: rgba(55, 66, 250, 0.2);
+    border-color: rgba(55, 66, 250, 0.5);
+    transform: translateY(-2px);
+}
+
+.display-btn.selected {
+    background: linear-gradient(135deg, #3742fa, #5352ed);
+    border-color: #3742fa;
+    color: white;
+    box-shadow: 0 4px 15px rgba(55, 66, 250, 0.4);
+}
+
+.display-btn:active {
+    transform: translateY(0px);
+}
+
+/* Rule Display */
+.rule-section {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(55, 66, 250, 0.2);
+}
+
+.rule-display {
+    background: linear-gradient(135deg, rgba(55, 66, 250, 0.2), rgba(83, 82, 237, 0.2));
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(55, 66, 250, 0.3);
+    text-align: center;
+}
+
+.rule-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+}
+
+/* Button Action Section */
+.button-action-section {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(55, 66, 250, 0.2);
+}
+
+.action-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 260px;
+    justify-content: space-between;
+}
+
+.input-group label {
+    color: #b8c5ff;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: 'Orbitron', monospace;
+    min-width: 90px;
+    text-align: left;
+}
+
+.action-input {
+    width: 90px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #3742fa;
+    border-radius: 8px;
+    color: #dae1ff;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(55,66,250,0.08);
+}
+
+/* --- End improved styling --- */
+
+/* Calculation Steps */
+.calculation-steps {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #3742fa;
+}
+
+.step {
+    margin-bottom: 10px;
+    padding: 8px 0;
+    color: #b8c5ff;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.step-number {
+    color: #3742fa;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.step-highlight {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Memory Section */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.memory-stage {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.memory-stage.filled {
+    border-color: rgba(76, 175, 80, 0.3);
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.memory-header {
+    background: rgba(55, 66, 250, 0.2);
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.memory-content {
+    padding: 15px;
+}
+
+.memory-item {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #b8c5ff;
+}
+
+.memory-item:last-child {
+    margin-bottom: 0;
+}
+
+.memory-position, .memory-label {
+    color: #ffffff;
+    font-weight: 600;
+    font-family: 'Orbitron', monospace;
+}
+
+/* Reference Styles */
+.reference-container {
+    height: auto;
+    overflow-y: visible;
+}
+
+.reference-section {
+    margin-bottom: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(55, 66, 250, 0.2);
+}
+
+.reference-section h4 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.reference-section p {
+    color: #b8c5ff;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.reference-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.reference-section li {
+    padding: 8px 0;
+    color: #b8c5ff;
+    position: relative;
+    padding-left: 20px;
+}
+
+.reference-section li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+
+/* Stage Reference */
+.stage-reference {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.stage-rules {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(55, 66, 250, 0.2);
+}
+
+.stage-rules h4 {
+    color: #3742fa;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.rule {
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border-left: 3px solid #3742fa;
+    color: #dae1ff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-container {
+        overflow-y: auto !important;
+        max-height: 100vh;
+        -webkit-overflow-scrolling: touch;
+    }
+    .modal-content {
+        height: 100% !important;
+        overflow-y: auto !important;
+        padding: 20px;
+        margin-bottom: 50px;
+        overflow: hidden;
+    }
+    
+    .button-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .current-stage {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .stage-indicators {
+        justify-content: center;
+    }
+
+    .stage-indicator {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .display-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+
+    .action-input {
+        width: 50%;
+    }
+}

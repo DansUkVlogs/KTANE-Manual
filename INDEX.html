@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep Talking and Nobody Explodes - Bomb Defusal Manual</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="title">
+                Keep Talking and Nobody Explodes
+            </h1>
+            <p class="subtitle">Bomb Defusal Manual</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="intro">
+                <h2>Welcome to the Bomb Defusal Manual</h2>
+                <p>Choose a module to learn how to defuse it. Communication and teamwork are key!</p>
+            </section>
+
+            <!-- Module Search Bar -->
+            <div class="module-search-bar">
+                <input type="text" id="moduleSearch" placeholder="Search modules..." autocomplete="off">
+                <button class="search-btn" type="button" aria-label="Search">🔍</button>
+            </div>
+
+            <section class="modules-grid">
+                <div class="module-card" data-module="simple-wires">
+                    <div class="module-icon">🔌</div>
+                    <h3>Simple Wires</h3>
+                    <p>Cut the correct wire based on color and position rules</p>
+                    <div class="difficulty easy">Easy</div>
+                </div>
+
+                <div class="module-card" data-module="button">
+                    <div class="module-icon">🔴</div>
+                    <h3>Button</h3>
+                    <p>Press or hold based on color, text, and strip conditions</p>
+                    <div class="difficulty easy">Easy</div>
+                </div>
+
+                <div class="module-card" data-module="keypad">
+                    <div class="module-icon">🎹</div>
+                    <h3>Keypad</h3>
+                    <p>Press symbols in the correct order using column references</p>
+                    <div class="difficulty medium">Medium</div>
+                </div>
+
+                <div class="module-card" data-module="simon-says">
+                    <div class="module-icon">🎵</div>
+                    <h3>Simon Says</h3>
+                    <p>Follow the flashing sequence with color and strike rules</p>
+                    <div class="difficulty medium">Medium</div>
+                </div>
+
+                <div class="module-card" data-module="whos-on-first">
+                    <div class="module-icon">🔘</div>
+                    <h3>Who's On First <br>(6 Button Screen)</h3>
+                    <p>Navigate word confusion using display and 6 button labels</p>
+                    <div class="difficulty hard">Hard</div>
+                </div>
+
+                <div class="module-card" data-module="memory">
+                    <div class="module-icon">🧠</div>
+                    <h3>Memory</h3>
+                    <p>Remember previous stages to solve multi-stage sequences</p>
+                    <div class="difficulty hard">Hard</div>
+                </div>
+
+                <div class="module-card" data-module="morse-code">
+                    <div class="module-icon">📡</div>
+                    <h3>Morse Code</h3>
+                    <p>Decode morse signals and set correct radio frequency</p>
+                    <div class="difficulty hard">Hard</div>
+                </div>
+
+                <div class="module-card" data-module="complicated-wires">
+                    <div class="module-icon">⚡</div>
+                    <h3>Complicated Wires</h3>
+                    <p>Use Venn diagram logic with wire properties</p>
+                    <div class="difficulty hard">Hard</div>
+                </div>
+
+                <div class="module-card" data-module="wire-sequences">
+                    <div class="module-icon">🔗</div>
+                    <h3>Wire Sequences</h3>
+                    <p>Cut wires in sequence based on color occurrence</p>
+                    <div class="difficulty medium">Medium</div>
+                </div>
+
+                <div class="module-card" data-module="mazes">
+                    <div class="module-icon">🏃</div>
+                    <h3>Mazes</h3>
+                    <p>Navigate through invisible walls to reach the goal</p>
+                    <div class="difficulty medium">Medium</div>
+                </div>
+
+                <div class="module-card" data-module="password">
+                    <div class="module-icon">🔒</div>
+                    <h3>Password</h3>
+                    <p>Find the correct password from a list of possibilities</p>
+                    <div class="difficulty easy">Easy</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Remember: Stay calm, communicate clearly, and work together!</p>
+            <p class="credits">Based on Keep Talking and Nobody Explodes by Steel Crate Games</p>
+        </div>
+    </footer>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-container" id="modalContainer">
+            <button class="modal-close" id="modalClose" title="Close Modal">×</button>
+            <div class="modal-content" id="modalContent">
+                <!-- Dynamic content loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Needy Module Overlay (appears on top of regular modals) -->
+    <div class="needy-overlay" id="needyOverlay">
+        <div class="needy-container" id="needyContainer">
+            <div class="needy-header">
+                <span class="needy-title" id="needyTitle">NEEDY MODULE</span>
+                <button class="needy-close" id="needyClose" title="Close Needy Module">×</button>
+            </div>
+            <div class="needy-content" id="needyContent">
+                <!-- Dynamic needy content loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Needy Modules Button -->
+    
+    <!-- Serial Number Input -->
+    
+
+    <!-- Strike Counter -->
+    
+
+    <!-- Mobile Tools Bar (sticky at bottom) -->
+    <div class="mobile-tools-bar">
+        <div class="serial-input-container">
+            <label for="mainSerial">Serial Number:</label>
+            <div class="serial-input-group">
+                <button class="lock-btn" id="mainLockSerial" title="Lock/Unlock Serial">🔓</button>
+                <input type="text" id="mainSerial" placeholder="Enter serial..." maxlength="10">
+            </div>
+        </div>
+        <div class="strike-counter-container">
+            <div class="strike-controls">
+                <button class="strike-btn strike-add" id="addStrike" title="Add Strike (+)">+</button>
+                <button class="strike-btn strike-remove" id="removeStrike" title="Remove Strike (-)">-</button>
+            </div>
+            <div class="strike-display" id="strikeDisplay">
+                <div class="strike-label">STRIKES</div>
+                <div class="strike-count" id="strikeCount">0</div>
+                <div class="strike-indicators" id="strikeIndicators">
+                    <div class="strike-dot" data-strike="1"></div>
+                    <div class="strike-dot" data-strike="2"></div>
+                    <div class="strike-dot" data-strike="3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="needy-fab-container">
+            <div class="needy-modules-menu" id="needyModulesMenu">
+                <div class="needy-module-item" data-module="venting-gas">
+                    <div class="needy-icon">💨</div>
+                    <span>Venting Gas</span>
+                </div>
+                <div class="needy-module-item" data-module="knobs">
+                    <div class="needy-icon">🎛️</div>
+                    <span>Knobs</span>
+                </div>
+                <div class="needy-module-item" data-module="capacitor-discharge">
+                    <div class="needy-icon">⚡</div>
+                    <span>Capacitor Discharge</span>
+                </div>
+            </div>
+            <button class="needy-fab" id="needyFab" title="Needy Modules - Always Active!">
+                <span class="fab-icon">⚠️</span>
+                <span class="fab-text">NEEDY</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

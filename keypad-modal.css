@@ -1,0 +1,699 @@
+/* Ensure Find Solution button is not floating */
+.solve-btn {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: auto !important;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 16px 0 0 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: block;
+}
+/* Ensure Find Solution button is not floating */
+.find-solution-btn {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: auto !important;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 16px 0 0 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: block;
+}
+/* Mobile optimization for Keypad modal */
+@media (max-width: 600px) {
+    .modal-content {
+        padding-bottom: 50px !important;
+        width:100% !important;
+    }
+    .tab-nav {
+        display: flex;
+        justify-content: stretch;
+        align-items: stretch;
+        gap: 0;
+        margin-bottom: 12px;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+    .keypad-tab {
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: none;
+        height: 56px;
+        font-size: 1.05rem;
+        padding: 0;
+        border-radius: 12px 12px 0 0;
+        margin: 0;
+        background: #222;
+        color: #fff;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .keypad-tab.active {
+        background: #2ecc40;
+        color: #fff;
+    }
+        .find-solution-btn {
+            position: static;
+            width: 100%;
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 16px 0 0 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: block;
+        }
+}
+/* Keypad Modal Styling */
+
+/* Override base modal styles for keypad */
+.modal-content {
+    background: linear-gradient(135deg, #1e1e2e 0%, #2d1b69 100%);
+    color: #fff;
+}
+
+/* Module Header */
+.module-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(55, 66, 250, 0.2), rgba(112, 161, 255, 0.1));
+    border-radius: 15px;
+    margin: -15px -12px 20px -12px;
+    border: 1px solid rgba(55, 66, 250, 0.3);
+}
+
+.module-icon {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #3742fa, #70a1ff);
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(55, 66, 250, 0.3);
+}
+
+.module-title h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #70a1ff;
+    margin: 0 0 5px 0;
+}
+
+.module-title p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Tools Drawer */
+.tools-drawer {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.tools-drawer.collapsed .drawer-content {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 20px;
+}
+
+.drawer-handle {
+    padding: 12px 20px;
+    background: rgba(55, 66, 250, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.drawer-handle:hover {
+    background: rgba(55, 66, 250, 0.2);
+}
+
+.drawer-text {
+    font-weight: 600;
+    color: #70a1ff;
+}
+
+.drawer-arrow {
+    transition: transform 0.3s ease;
+    color: #70a1ff;
+    transform: rotate(180deg);
+}
+
+.drawer-content {
+    max-height: 200px;
+    opacity: 1;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.tool-section {
+    margin-bottom: 15px;
+}
+
+.tool-section h4 {
+    color: #70a1ff;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.tips-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tips-list li {
+    padding: 4px 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+}
+
+.tips-list li:before {
+    content: "→ ";
+    color: #70a1ff;
+    font-weight: bold;
+}
+
+.shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.shortcut {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.shortcut kbd {
+    background: rgba(55, 66, 250, 0.2);
+    color: #70a1ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.75rem;
+}
+
+/* Tab Navigation */
+.modal-tabs {
+    margin-top: 20px;
+}
+
+.tab-nav {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.keypad-tab {
+    flex: 1;
+    padding: 12px 15px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.keypad-tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.keypad-tab.active {
+    background: linear-gradient(135deg, #3742fa, #70a1ff);
+    color: white;
+    box-shadow: 0 2px 8px rgba(55, 66, 250, 0.3);
+}
+
+.tab-icon {
+    font-size: 1.1rem;
+}
+
+.tab-label {
+    font-size: 0.9rem;
+}
+
+/* Tab Content */
+.tab-content {
+    min-height: 400px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Step System */
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.step-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.step-header h3 {
+    font-family: 'Orbitron', monospace;
+    color: #70a1ff;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.step-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+}
+
+/* Symbol Grid */
+.symbol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto 25px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.symbol-button {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.symbol-button:hover {
+    background: rgba(55, 66, 250, 0.2);
+    border-color: rgba(55, 66, 250, 0.5);
+    transform: translateY(-2px);
+}
+
+.symbol-button.selected {
+    background: linear-gradient(135deg, #3742fa, #70a1ff);
+    border-color: #70a1ff;
+    box-shadow: 0 4px 15px rgba(55, 66, 250, 0.4);
+    transform: translateY(-2px);
+}
+
+.symbol-button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.symbol-button.dimmed {
+    opacity: 0.3;
+    filter: grayscale(70%);
+}
+
+.symbol-button.dimmed:hover {
+    opacity: 0.5;
+    transform: none;
+}
+
+/* Selected Symbols Display */
+.selected-symbols {
+    margin-bottom: 25px;
+}
+
+.selected-symbols h4 {
+    text-align: center;
+    color: #70a1ff;
+    font-family: 'Orbitron', monospace;
+    margin-bottom: 15px;
+}
+
+.selected-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.selected-slot {
+    width: 50px;
+    height: 50px;
+    background: rgba(55, 66, 250, 0.1);
+    border: 2px solid rgba(55, 66, 250, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #70a1ff;
+}
+
+.empty-slot {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    padding: 2px;
+}
+
+/* Buttons */
+.step-actions {
+    text-align: center;
+    background: linear-gradient(135deg, #1e1e2e 0%, #2d1b69 100%);
+    padding: 15px 0;
+    margin: 0 -20px -20px -20px;
+    border-radius: 0 0 20px 20px;
+}
+
+.solve-btn {
+    background: linear-gradient(135deg, #3742fa, #70a1ff);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 200px;
+}
+
+.solve-btn:enabled:hover {
+    background: linear-gradient(135deg, #2f3542, #3742fa);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(55, 66, 250, 0.3);
+}
+
+.solve-btn:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 5px;
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Result Display */
+.result-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.result-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.result-header h3 {
+    font-family: 'Orbitron', monospace;
+    color: #70a1ff;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.press-sequence {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.press-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.press-number {
+    background: linear-gradient(135deg, #3742fa, #70a1ff);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.press-symbol {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #70a1ff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #70a1ff;
+}
+
+.result-explanation {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.result-actions {
+    text-align: center;
+}
+
+/* Reference Content */
+.reference-content {
+    padding: 20px;
+}
+
+.reference-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.reference-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.reference-header h4 {
+    font-family: 'Orbitron', monospace;
+    color: #70a1ff;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.reference-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+.columns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.column-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.column-header {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #70a1ff;
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+}
+
+.column-symbols {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.symbol-item {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.reference-note {
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 8px;
+    padding: 12px;
+    color: #ffc107;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+        max-height: 90vh;
+    }
+    
+    .module-header {
+        padding: 15px;
+        margin: -15px -12px 15px -12px;
+    }
+    
+    .module-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .symbol-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 300px;
+        gap: 8px;
+    }
+    
+    .symbol-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .selected-display {
+        gap: 10px;
+    }
+    
+    .selected-slot,
+    .empty-slot {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .press-sequence {
+        gap: 15px;
+    }
+    
+    .press-symbol {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .columns-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .module-header {
+        padding: 10px;
+    }
+    
+    .module-title h2 {
+        font-size: 1.3rem;
+    }
+    
+    .symbol-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+    
+    .symbol-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}

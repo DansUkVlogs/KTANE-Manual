@@ -1,0 +1,107 @@
+<!-- Keypad Module Modal -->
+<div class="modal-content">
+    <div class="module-header">
+        <div class="module-icon">⌨️</div>
+        <div class="module-title">
+            <h2>Keypad</h2>
+            <p>Press the four symbols in the order they appear in the correct column</p>
+        </div>
+    </div>
+    
+
+    
+    <div class="modal-tabs">
+        <div class="tab-nav">
+            <button class="keypad-tab active" data-action="auto">
+                <span class="tab-icon">🤖</span>
+                <span class="tab-label">Automatic</span>
+            </button>
+            <button class="keypad-tab" data-action="reference">
+                <span class="tab-icon">📋</span>
+                <span class="tab-label">Symbols Reference</span>
+            </button>
+        </div>
+        
+        <div class="tab-content">
+            <!-- Automatic Solver Tab -->
+            <div class="tab-pane active" data-tab="auto">
+                <div id="autoSolver">
+                    <!-- Step 1: Symbol Selection -->
+                    <div class="step active" id="step-selection">
+                        <div class="step-header">
+                            <h3>🎯 Select Your 4 Keypad Symbols</h3>
+                            <p>Click on the 4 symbols that appear on your keypad</p>
+                        </div>
+                        
+                        <div class="symbol-grid" id="symbolGrid">
+                            <!-- Symbols will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="selected-symbols">
+                            <h4>Selected Symbols (<span id="selectedCount">0</span>/4):</h4>
+                            <div class="selected-display" id="selectedDisplay">
+                                <div class="empty-slot">Click symbols above</div>
+                                <div class="empty-slot">Click symbols above</div>
+                                <div class="empty-slot">Click symbols above</div>
+                                <div class="empty-slot">Click symbols above</div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-actions">
+                            <button class="solve-btn" id="solveBtn" disabled>
+                                🔍 Find Solution
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Solution Display -->
+                    <div class="step" id="step-result">
+                        <div class="result-header">
+                            <div class="result-icon">✅</div>
+                            <h3>Press Order Solution</h3>
+                        </div>
+                        
+                        <div class="press-sequence" id="pressSequence">
+                            <!-- Solution will be populated here -->
+                        </div>
+                        
+                        <div class="result-explanation" id="resultExplanation">
+                            <!-- Explanation will be populated here -->
+                        </div>
+                        
+                        <div class="result-actions">
+                            <button class="secondary-btn" id="backToSelection">
+                                ↩️ Select Different Symbols
+                            </button>
+                            <button class="secondary-btn" id="restartKeypad">
+                                🔄 Start Over
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Symbols Reference Tab -->
+            <div class="tab-pane" data-tab="reference">
+                <div class="reference-content">
+                    <div class="reference-header">
+                        <div class="reference-icon">📋</div>
+                        <h4>Symbol Columns Reference</h4>
+                        <p>Find the column containing all 4 of your symbols, then press them in column order</p>
+                    </div>
+                    
+                    <div class="columns-grid" id="columnsGrid">
+                        <!-- Columns will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="reference-note">
+                        <strong>💡 How to Use:</strong> Only ONE column will contain all 4 of your keypad symbols. Press the symbols in the order they appear in that column (top to bottom).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="keypad-modal.css">
+<script src="keypad-modal.js"></script>

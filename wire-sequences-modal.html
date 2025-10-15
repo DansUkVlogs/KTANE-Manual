@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wire Sequences Module</title>
+    <link rel="stylesheet" href="wire-sequences-modal.css">
+</head>
+<body>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🔗 Wire Sequences</h2>
+            <p class="module-description">Track wire occurrences and cut wires based on their connection points using cumulative counting</p>
+        </div>
+            
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="tracker">Wire Tracker</button>
+            <button class="tab-btn" data-tab="manual">Manual Reference</button>
+        </div>
+        
+        <div class="tab-content">
+            <div class="tab-panel active" id="tracker">
+                <div class="wire-tracker">
+                    <div class="tracker-header">
+                        <h3>Wire Occurrence Tracker</h3>
+                        <button class="reset-btn" onclick="resetAll()">Reset All</button>
+                    </div>
+                    
+                    <!-- Wire Color Buttons -->
+                    <div class="wire-buttons-grid">
+                        <button class="wire-btn red-btn" onclick="addWire('red')">
+                            <div class="wire-icon">🔴</div>
+                            <span class="wire-label">Red Wire</span>
+                            <span class="occurrence-count" id="redCount">0</span>
+                        </button>
+                        
+                        <button class="wire-btn blue-btn" onclick="addWire('blue')">
+                            <div class="wire-icon">🔵</div>
+                            <span class="wire-label">Blue Wire</span>
+                            <span class="occurrence-count" id="blueCount">0</span>
+                        </button>
+                        
+                        <button class="wire-btn black-btn" onclick="addWire('black')">
+                            <div class="wire-icon">⚫</div>
+                            <span class="wire-label">Black Wire</span>
+                            <span class="occurrence-count" id="blackCount">0</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Undo Button -->
+                    <div class="controls-section">
+                        <button class="undo-btn" onclick="undoLastWire()" id="undoBtn" disabled>
+                            <span>↶ Undo Last Wire</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Current Action Display -->
+                    <div class="action-display">
+                        <h3>Next Wire Action:</h3>
+                        <div class="action-result" id="actionResult">
+                            Click a wire color above to see cutting instructions
+                        </div>
+                        <div class="action-explanation" id="actionExplanation"></div>
+                    </div>
+                    
+                    <!-- Wire History -->
+                    <div class="wire-history">
+                        <h4>Wire History:</h4>
+                        <div class="history-list" id="historyList">
+                            <span class="empty-history">No wires added yet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="tab-panel" id="manual">
+                <div class="manual-content">
+                    <h3>Wire Sequences Manual</h3>
+                    
+                    <div class="section">
+                        <h4>Instructions</h4>
+                        <ul>
+                            <li><strong>Wire Occurrences:</strong> Count each wire color cumulatively across all panels in the module</li>
+                            <li><strong>Connection Points:</strong> Each wire connects to a letter (A, B, or C)</li>
+                            <li><strong>Cutting Rule:</strong> Cut the wire only if it connects to the specified letter(s)</li>
+                            <li><strong>Panel Order:</strong> Work through panels from top to bottom, left to right</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h4>Red Wire Cutting Rules</h4>
+                        <div class="rules-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Occurrence</th>
+                                        <th>Cut if connected to:</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1st red</td><td class="cut-letter">C</td></tr>
+                                    <tr><td>2nd red</td><td class="cut-letter">B</td></tr>
+                                    <tr><td>3rd red</td><td class="cut-letter">A</td></tr>
+                                    <tr><td>4th red</td><td class="cut-letter">A or C</td></tr>
+                                    <tr><td>5th red</td><td class="cut-letter">B</td></tr>
+                                    <tr><td>6th red</td><td class="cut-letter">A or C</td></tr>
+                                    <tr><td>7th red</td><td class="cut-letter">A, B or C</td></tr>
+                                    <tr><td>8th red</td><td class="cut-letter">A or B</td></tr>
+                                    <tr><td>9th red</td><td class="cut-letter">B</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h4>Blue Wire Cutting Rules</h4>
+                        <div class="rules-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Occurrence</th>
+                                        <th>Cut if connected to:</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1st blue</td><td class="cut-letter">B</td></tr>
+                                    <tr><td>2nd blue</td><td class="cut-letter">A or C</td></tr>
+                                    <tr><td>3rd blue</td><td class="cut-letter">B</td></tr>
+                                    <tr><td>4th blue</td><td class="cut-letter">A</td></tr>
+                                    <tr><td>5th blue</td><td class="cut-letter">B</td></tr>
+                                    <tr><td>6th blue</td><td class="cut-letter">B or C</td></tr>
+                                    <tr><td>7th blue</td><td class="cut-letter">C</td></tr>
+                                    <tr><td>8th blue</td><td class="cut-letter">A or C</td></tr>
+                                    <tr><td>9th blue</td><td class="cut-letter">A</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h4>Black Wire Cutting Rules</h4>
+                        <div class="rules-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Occurrence</th>
+                                        <th>Cut if connected to:</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1st black</td><td class="cut-letter">A, B or C</td></tr>
+                                    <tr><td>2nd black</td><td class="cut-letter">A or C</td></tr>
+                                    <tr><td>3rd black</td><td class="cut-letter">B</td></tr>
+                                    <tr><td>4th black</td><td class="cut-letter">A or C</td></tr>
+                                    <tr><td>5th black</td><td class="cut-letter">B</td></tr>
+                                    <tr><td>6th black</td><td class="cut-letter">B or C</td></tr>
+                                    <tr><td>7th black</td><td class="cut-letter">A or B</td></tr>
+                                    <tr><td>8th black</td><td class="cut-letter">C</td></tr>
+                                    <tr><td>9th black</td><td class="cut-letter">C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="wire-sequences-modal.js"></script>
+    <script>
+        // Ensure initialization runs when loaded in modal
+        if (typeof initWireSequences === 'function') {
+            initWireSequences();
+        }
+    </script>
+</body>
+</html>

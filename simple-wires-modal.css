@@ -1,0 +1,742 @@
+/* Mobile scroll fix for modal content */
+@media (max-width: 600px) {
+    .modal-content, .module-content, .instructions-section {
+        max-height: 100vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 80px;
+    }
+    body {
+        overscroll-behavior-y: contain;
+    }
+}
+/* Mobile optimization for Simple Wires modal */
+@media (max-width: 600px) {
+    .module-header {
+        padding: 10px 0 0 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .module-title h2 {
+        font-size: 1.3rem;
+        margin-bottom: 2px;
+    }
+    .difficulty-badge {
+        font-size: 0.9rem;
+        padding: 2px 8px;
+        margin-top: 4px;
+    }
+    .module-description {
+        display: none;
+    }
+    .instructions-section {
+        padding: 0 4px;
+    }
+    .instructions-intro {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    .wire-tabs {
+        display: flex;
+        justify-content: space-between;
+        gap: 6px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+    .wire-tab {
+        flex: 1 1 40px;
+        min-width: 40px;
+        max-width: 48px;
+        height: 48px;
+        font-size: 1.05rem;
+        padding: 0;
+        border-radius: 10px;
+        margin: 0;
+        background: #222;
+        color: #fff;
+        border: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .wire-tab span {
+        font-size: 1.3em;
+        line-height: 1;
+        display: block;
+    }
+    .wire-tab.active {
+        background: #0074d9;
+        color: #fff;
+    }
+    .wire-tab-content {
+        padding: 0 2px;
+    }
+    .reference-section {
+        margin-top: 18px;
+        padding: 0 2px;
+    }
+    .reference-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+    .reference-grid {
+        font-size: 0.95rem;
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+    .warning-banner {
+        font-size: 0.95rem;
+        padding: 6px 8px;
+        margin-bottom: 8px;
+    }
+    .btn, .reset-btn {
+        font-size: 1rem;
+        padding: 10px 0;
+        border-radius: 8px;
+        min-width: 80px;
+    }
+    /* Hide extra reference info for mobile */
+    .reference-section {
+        display: none;
+    }
+}
+/* Simple Wires Modal Styles - Dark Theme */
+.module-header {
+    background: linear-gradient(135deg, #3742fa, #2f3542);
+    color: white;
+    padding: 12px 20px;
+    margin: -20px -20px 15px -20px;
+    text-align: center;
+    border-radius: 0;
+}
+
+.module-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+.module-icon {
+    font-size: 1.8rem;
+}
+
+.module-title h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.difficulty-badge {
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.difficulty-badge.easy {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.module-description {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.module-content {
+    padding: 0 15px;
+    position: relative;
+    background: linear-gradient(135deg, #1e1e2e 0%, #2d1b69 50%, #1e1e2e 100%);
+    color: #fff;
+    min-height: calc(100vh - 200px);
+}
+
+/* Override modal container background */
+.modal-container {
+    background: #1e1e2e !important;
+    overflow: hidden;
+}
+
+/* Tools Drawer */
+.tools-drawer {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 2002;
+    background: rgba(30, 30, 46, 0.95);
+    border: 2px solid #3742fa;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
+    max-width: 300px;
+    max-height: 60vh;
+    overflow: hidden;
+}
+
+.tools-drawer.collapsed {
+    transform: translateY(-50%) translateX(calc(100% - 45px));
+}
+
+.drawer-handle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 15px;
+    background: #3742fa;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px 0 0 8px;
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    user-select: none;
+    overflow: hidden;
+}
+
+.drawer-handle:hover {
+    background: #2f3542;
+}
+
+.drawer-arrow {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.tools-drawer.collapsed .drawer-arrow {
+    transform: rotate(180deg);
+}
+
+.drawer-content {
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    max-height: calc(60vh - 50px);
+}
+
+.tools-drawer.collapsed .drawer-content {
+    max-height: 0;
+    padding: 0;
+}
+
+.tools-container {
+    padding: 20px;
+    min-width: 250px;
+    background: linear-gradient(135deg, #1e1e2e 0%, #2d1b69 50%, #1e1e2e 100%);
+    color: #fff;
+}
+
+.no-tools-message {
+    text-align: center;
+    color: #ddd;
+    font-style: italic;
+    margin: 0 0 10px 0;
+    font-size: 0.95rem;
+}
+
+.tools-hint {
+    text-align: center;
+    color: #bbb;
+    font-size: 0.8rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* Ensure drawer is above modal content */
+.modal-container {
+    overflow: visible;
+}
+
+/* Warning Banner */
+.warning-banner {
+    background: linear-gradient(135deg, #5352ed, #3742fa);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(55, 66, 250, 0.3);
+}
+
+.instructions-section h3 {
+    font-family: 'Orbitron', monospace;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3742fa;
+    padding-bottom: 5px;
+}
+
+.instructions-intro {
+    color: #ddd;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Wire Tabs */
+.wire-tabs {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wire-tab {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    color: #bbb;
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.wire-tab:hover {
+    background: rgba(55, 66, 250, 0.2);
+    color: #fff;
+}
+
+.wire-tab.active {
+    background: #3742fa;
+    color: white;
+    box-shadow: 0 2px 8px rgba(55, 66, 250, 0.4);
+}
+
+/* Tab Content */
+.wire-tab-content {
+    min-height: 300px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+    animation: fadeInTab 0.3s ease;
+}
+
+@keyframes fadeInTab {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Serial Number Warning */
+.serial-warning {
+    background: rgba(255, 193, 7, 0.2);
+    border: 2px solid rgba(255, 193, 7, 0.5);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    color: #ffc107;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Rule List */
+.rule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rule-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.rule-item:hover {
+    background: rgba(55, 66, 250, 0.1);
+    border-color: rgba(55, 66, 250, 0.4);
+    transform: translateX(3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.rule-number {
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    background: #3742fa;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.rule-text {
+    line-height: 1.4;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.rule-text strong {
+    color: #70a1ff;
+    font-weight: 600;
+}
+
+.cut-wire {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white !important;
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700 !important;
+}
+
+/* Automatic Solver Styles */
+.auto-solver {
+    padding: 20px 0;
+}
+
+.solver-step {
+    display: none;
+}
+
+.solver-step.active {
+    display: block;
+    animation: fadeInStep 0.3s ease;
+}
+
+@keyframes fadeInStep {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.step-header h4 {
+    font-family: 'Orbitron', monospace;
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.step-header p {
+    color: #bbb;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    margin-bottom: 20px;
+}
+
+.progress-text {
+    color: #70a1ff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3742fa, #70a1ff);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+/* Wire Count Buttons */
+.wire-count-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.count-btn {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.count-btn:hover {
+    background: rgba(55, 66, 250, 0.1);
+    border-color: rgba(55, 66, 250, 0.4);
+    transform: translateY(-2px);
+}
+
+.count-btn:active {
+    transform: scale(0.98);
+}
+
+/* Question Buttons */
+.question-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.answer-btn {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+}
+
+.yes-btn:hover {
+    background: linear-gradient(135deg, #219a52, #27ae60);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 213, 115, 0.3);
+}
+
+.no-btn {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+.no-btn:hover {
+    background: linear-gradient(135deg, #d63031, #74b9ff);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+}
+
+/* Control Buttons */
+.step-controls {
+    text-align: center;
+}
+
+.control-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #bbb;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    background: rgba(55, 66, 250, 0.1);
+    border-color: rgba(55, 66, 250, 0.4);
+    color: #fff;
+}
+
+.restart-btn {
+    background: linear-gradient(135deg, #3742fa, #70a1ff);
+    border-color: transparent;
+    color: white;
+}
+
+.restart-btn:hover {
+    background: linear-gradient(135deg, #2f3542, #3742fa);
+}
+
+/* Result Display */
+.result-display {
+    background: rgba(46, 213, 115, 0.1);
+    border: 2px solid rgba(46, 213, 115, 0.3);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.result-wire {
+    font-size: 1.5rem;
+    color: #2ecc71;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.result-explanation {
+    color: #bbb;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.reference-section h3 {
+    font-family: 'Orbitron', monospace;
+    color: #2c2c54;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ff4757;
+    padding-bottom: 5px;
+}
+
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.reference-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease;
+}
+
+.reference-item:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.wire-color {
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.wire-color.red { background: #e74c3c; }
+.wire-color.blue { background: #3498db; }
+.wire-color.yellow { background: #f1c40f; }
+.wire-color.white { background: #ecf0f1; border-color: #bdc3c7; }
+.wire-color.black { background: #2c3e50; }
+
+.reference-item span {
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.serial-note {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    color: #856404;
+    font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .module-title {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .module-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .module-icon {
+        font-size: 2rem;
+    }
+    
+    .reference-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+    }
+    
+    .rule-card {
+        padding: 12px;
+    }
+    
+    .wire-color {
+        width: 35px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .module-header {
+        padding: 15px;
+        margin: -15px -12px 15px -12px;
+    }
+    
+    .module-title h2 {
+        font-size: 1.3rem;
+    }
+    
+    .reference-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

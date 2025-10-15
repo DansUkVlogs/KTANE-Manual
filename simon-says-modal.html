@@ -1,0 +1,59 @@
+<!-- Simon Says Module Modal -->
+<div class="modal-content">
+    <div class="module-header">
+        <div class="module-icon">🎵</div>
+        <div class="module-title">
+            <h2>Simon Says</h2>
+            <p>Follow the sequence and press the correct colors</p>
+        </div>
+    </div>
+    
+    <!-- Previous Flash Display -->
+    <div class="flash-display">
+        <h4>Previous Flashes:</h4>
+        <div class="flash-sequence" id="flashSequence">
+            <span class="empty-flash">No flashes yet</span>
+        </div>
+    </div>
+    
+    <!-- Color Buttons -->
+    <div class="simon-colors-grid">
+        <button class="simon-color red" data-color="red">Red</button>
+        <button class="simon-color blue" data-color="blue">Blue</button>
+        <button class="simon-color yellow" data-color="yellow">Yellow</button>
+        <button class="simon-color green" data-color="green">Green</button>
+    </div>
+    
+    <!-- Previous Presses Display -->
+    <div class="presses-display">
+        <h4>Previous Presses:</h4>
+        <div class="press-sequence" id="pressSequence">
+            <span class="empty-press">Press colors above to see what to press</span>
+        </div>
+    </div>
+
+    <!-- Controls Row (moved below previous presses) -->
+    <div class="controls-row">
+        <!-- Flat Strike Counter -->
+        <div class="flat-strike-counter">
+            <label>Strikes:</label>
+            <div class="flat-strike-controls">
+                <button class="flat-strike-btn minus" id="flatRemoveStrike">-</button>
+                <span class="flat-strike-count" id="flatStrikeCount">0</span>
+                <button class="flat-strike-btn plus" id="flatAddStrike">+</button>
+            </div>
+        </div>
+        
+        <!-- Serial Input for Calculation -->
+        <div class="calc-serial">
+            <label>Serial for Calc:</label>
+            <input type="text" id="calcSerial" placeholder="Serial..." readonly>
+        </div>
+        
+        <!-- Clear Button -->
+        <button class="clear-all-btn" id="clearAll">🗑️ Clear All</button>
+    </div>
+</div>
+
+<link rel="stylesheet" href="simon-says-modal.css">
+<script src="simon-says-modal.js"></script>

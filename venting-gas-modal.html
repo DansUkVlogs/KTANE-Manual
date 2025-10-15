@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTANE - Venting Gas</title>
+    <link rel="stylesheet" href="venting-gas-modal.css">
+</head>
+<body>
+    <div class="venting-container">
+        <div class="venting-header">
+            <h2>VENTING GAS</h2>
+            <div class="urgency-indicator" id="urgencyIndicator">
+                <span class="urgency-text">ATTENTION REQUIRED</span>
+            </div>
+        </div>
+
+        <div class="venting-content">
+            <div class="gas-status" id="gasStatus">
+                <div class="status-display">
+                    <div class="status-icon">💨</div>
+                    <div class="status-text">Gas detected - Venting required</div>
+                </div>
+            </div>
+
+            <div class="venting-instructions">
+                <h3>Rule of Thumb:</h3>
+                <div class="rule-highlight">
+                    <strong>ALWAYS CLICK YES</strong>
+                </div>
+                <ul>
+                    <li>The correct answer is always to vent the gas</li>
+                    <li>Click <strong>YES</strong> to vent and complete the module</li>
+                    <li>Clicking <strong>NO</strong> will result in a strike</li>
+                </ul>
+            </div>
+
+            <div class="instruction-display">
+                <div class="instruction-content">
+                    <h3>How to Handle Venting Gas</h3>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <span class="step-text">When the Venting Gas module activates</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span class="step-text">Click "Y" to vent the gas</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span class="step-text">Module will be temporarily satisfied</span>
+                        </div>
+                    </div>
+                    
+                    <div class="important-note">
+                        <strong>⚠️ Important:</strong> This module will reactivate periodically throughout the bomb defusal process. Always vent when prompted!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="venting-gas-modal.js"></script>
+</body>
+</html>

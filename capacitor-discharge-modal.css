@@ -1,0 +1,218 @@
+/* Capacitor Discharge Modal Styles */
+
+.needy-header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    border: 2px solid #555;
+    border-radius: 12px 12px 0 0;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.needy-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.needy-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 8px #ff6b35);
+}
+
+.needy-title h2 {
+    color: #ff6b35;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+
+.needy-badge {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+}
+
+.needy-content {
+    background: #1a1a1a;
+    border: 2px solid #555;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 25px;
+}
+
+.instruction-display {
+    margin-bottom: 15px;
+}
+
+.instruction-content h3 {
+    color: #ff6b35;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.step-by-step {
+    margin-bottom: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 12px;
+    background: #2a2a2a;
+    border-radius: 8px;
+    border-left: 4px solid #ff6b35;
+}
+
+.step-number {
+    background: #ff6b35;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.step-text {
+    color: #e0e0e0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.important-note {
+    background: #5e2e2e;
+    border: 2px solid #ff4757;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    color: #ff4757;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.reference-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #333;
+}
+
+.reference-section h3 {
+    color: #ff6b35;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.reference-content {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.rule-summary {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    border-left: 4px solid #ff6b35;
+}
+
+.rule-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 0 8px #ff6b35);
+}
+
+.rule-text strong {
+    color: #ff6b35;
+    font-size: 1.1rem;
+}
+
+.rule-text {
+    color: #e0e0e0;
+}
+
+.timing-info {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.timing-label {
+    color: #ff6b35;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timing-details p {
+    color: #ccc;
+    margin: 5px 0;
+    padding-left: 10px;
+}
+
+.needy-note {
+    background: #2a2a2a;
+    border: 1px solid #ff6b35;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    color: #ff6b35;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .needy-header {
+        padding: 15px;
+    }
+    
+    .needy-title h2 {
+        font-size: 1.6rem;
+    }
+    
+    .needy-content {
+        padding: 20px;
+        padding-bottom: 50px;
+    }
+    
+    .step {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .step-number {
+        margin-right: 0;
+    }
+    
+    .rule-summary {
+        flex-direction: column;
+        text-align: center;
+    }
+}

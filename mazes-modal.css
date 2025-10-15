@@ -1,0 +1,375 @@
+@media (max-width: 600px) {
+    .container,
+    #mazesModal,
+    .mazes-modal-container {
+        min-height: 100vh !important;
+        height: auto !important;
+        background-color: #2a2a2a !important;
+    }
+
+    .maze-grid .solution-grid {
+        width: 95% !important;
+        margin: 0 auto;
+    }
+
+    .solution-cell {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .grid-cell{
+        width: 30px !important;
+        height: 30px !important;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.modal-content,
+    .mazes-modal-container,
+    #mazesModal {
+        padding: 0 !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
+
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #2a2a2a;
+    overflow: visible !important;
+    padding-bottom: 50px !important;
+}
+
+.header {
+    background-color: #333;
+    padding: 15px 20px;
+    border-bottom: 2px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header h1 {
+    color: #ff6b35;
+    font-size: 1.8rem;
+}
+
+.close-btn {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    background: #b71c1c;
+}
+
+
+.content {
+    flex: 1;
+    padding: 20px;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/* Ensure only modal scrolls */
+#mazesModal, .mazes-modal-container {
+    max-height: 100vh;
+    overflow-y: auto !important;
+}
+
+.section {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.section h3 {
+    color: #ff6b35;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.section p {
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+/* Maze Grid Styles */
+.maze-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    max-width: 300px;
+    margin: 0 auto 20px;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.grid-cell {
+    width: 40px;
+    height: 40px;
+    background-color: #666;
+    border: 1px solid #888;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.grid-cell:hover {
+    background-color: #777;
+}
+
+.grid-cell.circle {
+    background-color: #ff6b35;
+    color: white;
+    font-weight: bold;
+}
+
+.grid-cell.circle::after {
+    content: "●";
+    font-size: 20px;
+}
+
+/* Solution Grid Styles */
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #444;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.solution-cell {
+    width: 50px;
+    height: 50px;
+    background-color: #555;
+    border: 2px solid #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-weight: bold;
+}
+
+.solution-cell.start {
+    background-color: #4caf50 !important;
+    color: white !important;
+    border: 2px solid #4caf50 !important;
+}
+
+.solution-cell.start::after {
+    content: "●";
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+.solution-cell.end {
+    background-color: #4caf50 !important;
+    color: white !important;
+    border: 2px solid #4caf50 !important;
+}
+
+.solution-cell.end::after {
+    content: "●";
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+/* Override ALL other styles for start/end - max specificity */
+.solution-cell.start,
+.solution-cell.start.circle,
+.solution-cell.circle.start,
+div.solution-cell.start {
+    background-color: #4caf50 !important;
+    border: 2px solid #4caf50 !important;
+    border-color: #4caf50 !important;
+    border-width: 2px !important;
+}
+
+.solution-cell.end,
+.solution-cell.end.circle, 
+.solution-cell.circle.end,
+div.solution-cell.end {
+    background-color: #4caf50 !important;
+    border: 2px solid #4caf50 !important;
+    border-color: #4caf50 !important;
+    border-width: 2px !important;
+}
+
+.solution-cell.path {
+    background-color: #2196f3;
+    border: 2px solid #1976d2;
+}
+
+.solution-cell:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.solution-cell.circle {
+    border-color: #ff6b35;
+    border-width: 3px;
+}
+
+.solution-cell.circle::before {
+    content: "●";
+    color: #ff6b35;
+    font-size: 16px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+/* Wall styles */
+.solution-cell.wall-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: #ff6b35;
+}
+
+.solution-cell.wall-left::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #ff6b35;
+    z-index: 1;
+}
+
+/* Navigation Instructions */
+.navigation-instructions {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.start-indicator {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.end-indicator {
+    color: #f44336;
+    font-weight: bold;
+}
+
+/* Maze Info */
+.maze-info {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.maze-info.identified {
+    background-color: #2e5e2e;
+    border: 2px solid #4caf50;
+}
+
+/* Path Instructions */
+.path-instructions {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.path-instructions.has-path {
+    background-color: #2e4e5e;
+    border: 2px solid #2196f3;
+}
+
+.path-step {
+    margin-bottom: 8px;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+/* Buttons */
+.btn {
+    background-color: #ff6b35;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #e55a2b;
+}
+
+.btn:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+.btn.secondary {
+    background-color: #666;
+}
+
+.btn.secondary:hover {
+    background-color: #777;
+}
+
+.actions {
+    padding: 20px;
+    border-top: 1px solid #444;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Coordinate labels */
+.grid-coords {
+    font-size: 10px;
+    color: #999;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}

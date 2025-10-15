@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Module</title>
+    <link rel="stylesheet" href="memory-modal.css">
+</head>
+<body>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🧠 Memory Module</h2>
+            <p class="module-description">Remember previous stages to solve multi-stage button sequences using position and label memory</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="solver">Stage Solver</button>
+            <button class="tab-btn" data-tab="manual">Manual Reference</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Stage Solver Tab -->
+            <div class="tab-panel active" id="solver">
+                <div class="solver-container">
+                    <!-- Stage Progress -->
+                    <div class="stage-progress">
+                        <div class="current-stage">
+                            <h3>🎯 Current Stage: <span id="currentStageNum">1</span></h3>
+                            <button class="reset-btn" id="resetStages">🔄 Reset to Stage 1</button>
+                        </div>
+                        
+                        <div class="stage-indicators">
+                            <div class="stage-indicator active" data-stage="1">1</div>
+                            <div class="stage-indicator" data-stage="2">2</div>
+                            <div class="stage-indicator" data-stage="3">3</div>
+                            <div class="stage-indicator" data-stage="4">4</div>
+                            <div class="stage-indicator" data-stage="5">5</div>
+                        </div>
+                    </div>
+
+                    <!-- Current Stage Input -->
+                    <div class="stage-input-section">
+                        <h3>📺 Display Number</h3>
+                        <div class="display-selection">
+                            <label>Number shown on display:</label>
+                            <div class="display-buttons">
+                                <button class="display-btn" data-number="1">1</button>
+                                <button class="display-btn" data-number="2">2</button>
+                                <button class="display-btn" data-number="3">3</button>
+                                <button class="display-btn" data-number="4">4</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rule Display -->
+                    <div class="rule-section" id="ruleSection" style="display: none;">
+                        <h3>� What to do</h3>
+                        <div class="rule-display" id="ruleDisplay">
+                            <div class="rule-text">Enter display number to see what to do</div>
+                        </div>
+                    </div>
+
+                    <!-- Button Action Section -->
+                    <div class="button-action-section" id="buttonActionSection" style="display: none;">
+                        <h3>🎯 What to Press</h3>
+                        
+                        <div class="action-inputs">
+                            <div class="input-group">
+                                <label for="buttonPosition">Position (1-4):</label>
+                                <input type="number" id="buttonPosition" min="1" max="4" placeholder="1-4" class="action-input">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="buttonLabel">Label:</label>
+                                <input type="text" id="buttonLabel" placeholder="Label" maxlength="1" class="action-input">
+                            </div>
+                        </div>
+                        
+                        <div class="input-help" id="inputHelp">
+                            Fill in the missing information based on what you see on the bomb.
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button class="next-stage-btn" id="nextStage" disabled>Next Stage →</button>
+                        </div>
+                    </div>
+
+                    <!-- Memory Tracking -->
+                    <div class="memory-section">
+                        <h3>📝 Memory Bank</h3>
+                        <div class="memory-grid">
+                            <div class="memory-stage" id="memory-stage-1">
+                                <div class="memory-header">Stage 1</div>
+                                <div class="memory-content">
+                                    <div class="memory-item">Position: <span class="memory-position">-</span></div>
+                                    <div class="memory-item">Label: <span class="memory-label">-</span></div>
+                                </div>
+                            </div>
+                            <div class="memory-stage" id="memory-stage-2">
+                                <div class="memory-header">Stage 2</div>
+                                <div class="memory-content">
+                                    <div class="memory-item">Position: <span class="memory-position">-</span></div>
+                                    <div class="memory-item">Label: <span class="memory-label">-</span></div>
+                                </div>
+                            </div>
+                            <div class="memory-stage" id="memory-stage-3">
+                                <div class="memory-header">Stage 3</div>
+                                <div class="memory-content">
+                                    <div class="memory-item">Position: <span class="memory-position">-</span></div>
+                                    <div class="memory-item">Label: <span class="memory-label">-</span></div>
+                                </div>
+                            </div>
+                            <div class="memory-stage" id="memory-stage-4">
+                                <div class="memory-header">Stage 4</div>
+                                <div class="memory-content">
+                                    <div class="memory-item">Position: <span class="memory-position">-</span></div>
+                                    <div class="memory-item">Label: <span class="memory-label">-</span></div>
+                                </div>
+                            </div>
+                            <div class="memory-stage" id="memory-stage-5">
+                                <div class="memory-header">Stage 5</div>
+                                <div class="memory-content">
+                                    <div class="memory-item">Position: <span class="memory-position">-</span></div>
+                                    <div class="memory-item">Label: <span class="memory-label">-</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manual Reference Tab -->
+            <div class="tab-panel" id="manual">
+                <div class="reference-container">
+                    <h3>📋 Memory Module Reference</h3>
+                    
+                    <div class="reference-section">
+                        <h4>How Memory Works</h4>
+                        <p>The Memory module has 5 stages. Each stage shows a display number (1-4) and 4 buttons with labels. You must remember what you pressed in previous stages to solve later stages.</p>
+                        <ul>
+                            <li><strong>Position</strong>: The physical location of the button (1st, 2nd, 3rd, 4th)</li>
+                            <li><strong>Label</strong>: The number written on the button you pressed</li>
+                            <li>Different stages reference different previous stages</li>
+                        </ul>
+                    </div>
+
+                    <div class="stage-reference">
+                        <div class="stage-rules">
+                            <h4>Stage 1</h4>
+                            <div class="rules-grid">
+                                <div class="rule">Display 1 → Press position 2</div>
+                                <div class="rule">Display 2 → Press position 2</div>
+                                <div class="rule">Display 3 → Press position 3</div>
+                                <div class="rule">Display 4 → Press position 4</div>
+                            </div>
+                        </div>
+
+                        <div class="stage-rules">
+                            <h4>Stage 2</h4>
+                            <div class="rules-grid">
+                                <div class="rule">Display 1 → Press button labeled "4"</div>
+                                <div class="rule">Display 2 → Press same position as Stage 1</div>
+                                <div class="rule">Display 3 → Press position 1</div>
+                                <div class="rule">Display 4 → Press same position as Stage 1</div>
+                            </div>
+                        </div>
+
+                        <div class="stage-rules">
+                            <h4>Stage 3</h4>
+                            <div class="rules-grid">
+                                <div class="rule">Display 1 → Press same label as Stage 2</div>
+                                <div class="rule">Display 2 → Press same label as Stage 1</div>
+                                <div class="rule">Display 3 → Press position 3</div>
+                                <div class="rule">Display 4 → Press button labeled "4"</div>
+                            </div>
+                        </div>
+
+                        <div class="stage-rules">
+                            <h4>Stage 4</h4>
+                            <div class="rules-grid">
+                                <div class="rule">Display 1 → Press same position as Stage 1</div>
+                                <div class="rule">Display 2 → Press position 1</div>
+                                <div class="rule">Display 3 → Press same position as Stage 2</div>
+                                <div class="rule">Display 4 → Press same position as Stage 2</div>
+                            </div>
+                        </div>
+
+                        <div class="stage-rules">
+                            <h4>Stage 5</h4>
+                            <div class="rules-grid">
+                                <div class="rule">Display 1 → Press same label as Stage 1</div>
+                                <div class="rule">Display 2 → Press same label as Stage 2</div>
+                                <div class="rule">Display 3 → Press same label as Stage 4</div>
+                                <div class="rule">Display 4 → Press same label as Stage 3</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reference-section">
+                        <h4>💡 Tips</h4>
+                        <ul>
+                            <li>Always record both the position and label of what you pressed</li>
+                            <li>Some stages reference positions, others reference labels</li>
+                            <li>Use the reset button if you make a mistake</li>
+                            <li>The memory bank tracks everything automatically</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="memory-modal.js"></script>
+</body>
+</html>

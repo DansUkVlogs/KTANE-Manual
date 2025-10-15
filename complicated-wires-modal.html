@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complicated Wires Module</title>
+    <link rel="stylesheet" href="complicated-wires-modal.css">
+</head>
+<body>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>⚡ Complicated Wires</h2>
+            <p class="module-description">Analyze wire properties to determine the correct cutting action using Venn diagram logic</p>
+        </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="solver">Wire Analyzer</button>
+                <button class="tab-btn" data-tab="manual">Manual</button>
+            </div>
+            
+            <div class="tab-content">
+                <div class="tab-panel active" id="solver">
+                    <div class="wire-analyzer">
+                    <div class="analyzer-header">
+                        <h3>Wire Properties</h3>
+                        <button class="reset-btn" onclick="resetAll()">Reset All</button>
+                    </div>
+                    
+                    <div class="properties-grid">
+                        <button class="property-btn" id="hasRed" onclick="toggleProperty('hasRed')">
+                            <div class="property-icon red-icon">🔴</div>
+                            <span>Has Red</span>
+                        </button>
+                        
+                        <button class="property-btn" id="hasBlue" onclick="toggleProperty('hasBlue')">
+                            <div class="property-icon blue-icon">🔵</div>
+                            <span>Has Blue</span>
+                        </button>
+                        
+                        <button class="property-btn" id="hasStar" onclick="toggleProperty('hasStar')">
+                            <div class="property-icon star-icon">⭐</div>
+                            <span>Has Star</span>
+                        </button>
+                        
+                        <button class="property-btn" id="ledOn" onclick="toggleProperty('ledOn')">
+                            <div class="property-icon led-icon">💡</div>
+                            <span>LED On</span>
+                        </button>
+                    </div>
+                    
+                    <div class="outcome-display">
+                        <h3>Action Required:</h3>
+                        <div class="outcome-result" id="outcomeResult">
+                            Select wire properties above
+                        </div>
+                        <div class="outcome-explanation" id="outcomeExplanation"></div>
+                    </div>
+                    </div>
+                </div>
+            
+            <div class="tab-panel" id="manual">
+                <div class="manual-content">
+                    <h3>Complicated Wires Manual</h3>
+                    
+                    <div class="section">
+                        <h4>Wire Properties</h4>
+                        <ul>
+                            <li><strong>Red Coloring:</strong> Wire contains red color (may be combined with other colors)</li>
+                            <li><strong>Blue Coloring:</strong> Wire contains blue color (may be combined with other colors)</li>
+                            <li><strong>White Wire:</strong> Wire has no red or blue coloring (neither red nor blue selected)</li>
+                            <li><strong>Star Symbol:</strong> Wire has a star (★) symbol on it</li>
+                            <li><strong>LED:</strong> There is a lit LED above the wire</li>
+                        </ul>
+                        <div class="wire-note">
+                            <strong>Note:</strong> A wire can have multiple colors (e.g., red + blue = purple). 
+                            A "white" wire means it has neither red nor blue coloring.
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h4>Venn Diagram Logic</h4>
+                        <div class="venn-diagram-container">
+                            <img src="Other-imgs/Complicated-wires-Venn-Diagram.png" alt="Complicated Wires Venn Diagram" class="venn-diagram">
+                            <p class="diagram-note">Use this Venn diagram to determine the correct action for each wire based on its properties.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h4>Action Codes Explained</h4>
+                        <div class="action-codes">
+                            <div class="code-item cut">
+                                <span class="code">C</span>
+                                <div class="description">
+                                    <strong>Always Cut</strong><br>
+                                    Cut this wire immediately - no additional conditions required
+                                </div>
+                            </div>
+                            <div class="code-item dont-cut">
+                                <span class="code">D</span>
+                                <div class="description">
+                                    <strong>Don't Cut</strong><br>
+                                    Never cut this wire under any circumstances
+                                </div>
+                            </div>
+                            <div class="code-item serial">
+                                <span class="code">S</span>
+                                <div class="description">
+                                    <strong>Serial Number Check</strong><br>
+                                    Cut if the bomb's serial number ends in an even digit (0, 2, 4, 6, 8)
+                                </div>
+                            </div>
+                            <div class="code-item parallel">
+                                <span class="code">P</span>
+                                <div class="description">
+                                    <strong>Parallel Port Check</strong><br>
+                                    Cut if the bomb has a parallel port (looks like a wide rectangular connector)
+                                </div>
+                            </div>
+                            <div class="code-item battery">
+                                <span class="code">B</span>
+                                <div class="description">
+                                    <strong>Battery Check</strong><br>
+                                    Cut if the bomb has 2 or more batteries (any combination of AA or D batteries)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h4>Decision Table</h4>
+                        <div class="decision-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Wire Description</th>
+                                        <th>LED Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>White (no colors)</td><td>OFF</td><td class="action-c">C</td></tr>
+                                    <tr><td>White + Star</td><td>OFF</td><td class="action-c">C</td></tr>
+                                    <tr><td>Red only</td><td>OFF</td><td class="action-s">S</td></tr>
+                                    <tr><td>Blue only</td><td>OFF</td><td class="action-s">S</td></tr>
+                                    <tr><td>Red + Blue</td><td>OFF</td><td class="action-s">S</td></tr>
+                                    <tr><td>Red + Blue</td><td>ON</td><td class="action-s">S</td></tr>
+                                    <tr><td>Red + Star (any combo)</td><td>OFF</td><td class="action-c">C</td></tr>
+                                    <tr><td>White + Star</td><td>ON</td><td class="action-b">B</td></tr>
+                                    <tr><td>Red only</td><td>ON</td><td class="action-b">B</td></tr>
+                                    <tr><td>Red + Star (any combo)</td><td>ON</td><td class="action-b">B</td></tr>
+                                    <tr><td>Blue only</td><td>ON</td><td class="action-p">P</td></tr>
+                                    <tr><td>Blue + Star (any combo)</td><td>ON</td><td class="action-p">P</td></tr>
+                                    <tr><td>Red + Blue + Star</td><td>OFF</td><td class="action-p">P</td></tr>
+                                    <tr><td>White (plain)</td><td>ON</td><td class="action-d">D</td></tr>
+                                    <tr><td>Red + Blue + Star</td><td>ON</td><td class="action-d">D</td></tr>
+                                    <tr><td>Blue + Star</td><td>OFF</td><td class="action-d">D</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="complicated-wires-modal.js"></script>
+    <script>
+        // Ensure initialization runs when loaded in modal
+        if (typeof initComplicatedWires === 'function') {
+            initComplicatedWires();
+        }
+    </script>
+</body>
+</html>

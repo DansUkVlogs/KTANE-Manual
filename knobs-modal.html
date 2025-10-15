@@ -1,0 +1,273 @@
+<div class="needy-header">
+    <div class="needy-title">
+        <span class="needy-icon">🎛️</span>
+        <h2>Knobs</h2>
+    </div>
+    <div class="needy-badge">NEEDY</div>
+</div>
+
+<div class="needy-content">
+    <div class="instruction-display">
+        <div class="instruction-content">
+            <details class="dropdown-section">
+                <summary><h3>How to Handle Knobs</h3></summary>
+                <div class="step-by-step">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Check the configuration of the twelve LEDs on the module</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Click the LEDs below to match the pattern you see on the module</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Compare your pattern to the reference configurations</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-text">Turn the knob to the determined position before the timer hits zero</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-text">Remember: positions are relative to the "UP" label on the module</div>
+                    </div>
+                </div>
+                <div class="important-note">
+                    ⚠️ <strong>Critical:</strong> The knob must be in the correct position when the module's timer hits zero. 
+                    Failure to position correctly will cause a strike!
+                </div>
+            </details>
+        </div>
+    </div>
+    
+    <div class="led-input-section">
+        <h4>🔹 Input LED Configuration</h4>
+        <p>Click to toggle LEDs on/off to match what you see on the module:</p>
+        <div class="led-grid" id="ledGrid">
+            <div class="led-row">
+                <div class="led" data-led="0"></div>
+                <div class="led" data-led="1"></div>
+                <div class="led" data-led="2"></div>
+                <div class="led" data-led="3"></div>
+                <div class="led" data-led="4"></div>
+                <div class="led" data-led="5"></div>
+            </div>
+            <div class="led-row">
+                <div class="led" data-led="6"></div>
+                <div class="led" data-led="7"></div>
+                <div class="led" data-led="8"></div>
+                <div class="led" data-led="9"></div>
+                <div class="led" data-led="10"></div>
+                <div class="led" data-led="11"></div>
+            </div>
+        </div>
+        <div class="position-result" id="positionResult">
+            <div class="result-text">Select LEDs to determine knob position</div>
+        </div>
+        
+        <div class="control-buttons">
+            <button class="clear-button" id="clearLEDs">🗑️ Clear All LEDs</button>
+        </div>
+    </div>
+    
+    <div class="reference-section">
+        <h3>🎯 LED Configuration Reference</h3>
+        <div class="reference-grid">
+            <div class="position-reference">
+                <h4>UP Position</h4>
+                <div class="pattern-options">
+                    <div class="pattern-option">
+                        <div class="reference-led-grid">
+                            <div class="ref-led"></div>
+                            <div class="ref-led"></div>
+                            <div class="ref-led lit"></div>
+                            <div class="ref-led"></div>
+                            <div class="ref-led lit"></div>
+                            <div class="ref-led lit"></div>
+                            <div class="ref-led lit"></div>
+                            <div class="ref-led lit"></div>
+                            <div class="ref-led lit"></div>
+                            <div class="ref-led lit"></div>
+                            <div class="ref-led"></div>
+                            <div class="ref-led lit"></div>
+                        </div>
+                        <div class="pattern-label">Pattern A</div>
+                    </div>
+                    <div class="pattern-option">
+                        <div class="reference-led-grid">
+                            <div class="ref-led-row">
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                            </div>
+                            <div class="ref-led-row">
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                            </div>
+                        </div>
+                        <div class="pattern-label">Pattern B</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="position-reference">
+                <h4>DOWN Position</h4>
+                <div class="pattern-options">
+                    <div class="pattern-option">
+                        <div class="reference-led-grid">
+                            <div class="ref-led-row">
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                            </div>
+                            <div class="ref-led-row">
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                            </div>
+                        </div>
+                        <div class="pattern-label">Pattern A</div>
+                    </div>
+                    <div class="pattern-option">
+                        <div class="reference-led-grid">
+                            <div class="ref-led-row">
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                            </div>
+                            <div class="ref-led-row">
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                            </div>
+                        </div>
+                        <div class="pattern-label">Pattern B</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="position-reference">
+                <h4>LEFT Position</h4>
+                <div class="pattern-options">
+                    <div class="pattern-option">
+                        <div class="reference-led-grid">
+                            <div class="ref-led-row">
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                            </div>
+                            <div class="ref-led-row">
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                            </div>
+                        </div>
+                        <div class="pattern-label">Pattern A</div>
+                    </div>
+                    <div class="pattern-option">
+                        <div class="reference-led-grid">
+                            <div class="ref-led-row">
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                            </div>
+                            <div class="ref-led-row">
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                            </div>
+                        </div>
+                        <div class="pattern-label">Pattern B</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="position-reference">
+                <h4>RIGHT Position</h4>
+                <div class="pattern-options">
+                    <div class="pattern-option">
+                        <div class="reference-led-grid">
+                            <div class="ref-led-row">
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                            </div>
+                            <div class="ref-led-row">
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                            </div>
+                        </div>
+                        <div class="pattern-label">Pattern A</div>
+                    </div>
+                    <div class="pattern-option">
+                        <div class="reference-led-grid">
+                            <div class="ref-led-row">
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led"></div>
+                            </div>
+                            <div class="ref-led-row">
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                                <div class="ref-led lit"></div>
+                                <div class="ref-led"></div>
+                            </div>
+                        </div>
+                        <div class="pattern-label">Pattern B</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="needy-note">
+            <strong>💡 Remember:</strong> Knob positions are relative to the "UP" label, which may have rotated on the module!
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="knobs-modal.css">
+<script src="knobs-modal.js"></script>
